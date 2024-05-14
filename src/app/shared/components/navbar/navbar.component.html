@@ -1,0 +1,30 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      @for(nav of menu; track $index){
+
+      <a mat-list-item routerLink="inicio/{{nav.link}}">
+        <mat-icon mat-font-icon="fa-icon" class="fas fa-home">{{nav.icon}}</mat-icon>
+        {{nav.label}}</a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      @if (isHandset$ | async) {
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      }
+      <span>Robinson Diaz</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

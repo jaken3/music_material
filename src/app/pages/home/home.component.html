@@ -1,15 +1,31 @@
-@for(video of videos; track $index){
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>title</mat-card-title>
-        <mat-card-subtitle>subtitle</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @for(video of videos; track $index){
+        <div class="carousel-item" [ngClass]="$index===0?'active':''">
+            <mat-card class="container-md">
+                <mat-card-header class="card-header-pills">
+                    <mat-card-title>{{video.title}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="card-body">
+                    <youtube-player videoId="{{video.idVideo}}" width="auto"></youtube-player>
+                    <button class="carousel-control-next" mat-stroked-button data-bs-target="#carouselExampleInterval"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon " style="position: relative; left: calc(640px * 0.1);"
+                            aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </mat-card-content>
+                <button class="carousel-control-prev" mat-stroked-button data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
 
-        <youtube-player videoId="{{video}}"></youtube-player>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>Ok</button>
-    </mat-card-actions>
-</mat-card>
-}
+            </mat-card>
+        </div>
+        }
+
+
+    </div>
+
+</div>
