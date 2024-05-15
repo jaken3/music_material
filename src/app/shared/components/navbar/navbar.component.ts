@@ -53,7 +53,8 @@ export class NavbarComponent {
   menu: Menu[]=[
     {label:'inicio', icon:'home', link:'home'},
     {label:'contacto', icon:'contacts', link:'contact'},
-    {label:'entrevistas', icon:'video_camera_front', link:'interwiews'}
+    {label:'entrevistas', icon:'video_camera_front', link:'interview'},
+    {label:'Conciertos', icon:'video_camera_front', link:'recent-concerts'}
   ]
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

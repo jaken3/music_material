@@ -1,5 +1,5 @@
 export interface Ivideo{
-    idVideo:string,
+    url:string,
     lirycs:string,
     title:string
 }

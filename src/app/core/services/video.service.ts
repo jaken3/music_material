@@ -14,7 +14,7 @@ import { Message } from '../models/message';
       super(http)
     }
 
-    getAllVideos(url: string): Observable<Message<Ivideo[]>> {
-      return this.getAll<Message<Ivideo[]>>(url);
+    getAllVideos(): Observable<Message<Ivideo>> {
+      return this.getAll<Message<Ivideo>>('videos/getAll');
     }
   }

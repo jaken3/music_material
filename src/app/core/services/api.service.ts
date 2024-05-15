@@ -21,7 +21,7 @@ export class ApiService {
    * @returns Observable tipo Message
    */
   protected save<T>(urlSegment: string, form: T): Observable<Message<null>> {
-    return this.http.post<Message<null>>(`${this.api}/${urlSegment}`, form)
+    return this.http.post<Message<null>>(this.api.concat(urlSegment), form)
   }
 
   /**
@@ -31,7 +31,7 @@ export class ApiService {
    * @returns Observable tipo Message
    */
   protected update<T>(urlSegment: string, form: T): Observable<Message<null>> {
-    return this.http.put<Message<null>>(`${this.api}/${urlSegment}`, form);
+    return this.http.put<Message<null>>(this.api.concat(urlSegment), form);
   }
 
   /**
@@ -41,11 +41,11 @@ export class ApiService {
    * @returns 
    */
   protected delete(urlSegment: string, id: number): Observable<Message<null>> {
-    return this.http.delete<Message<null>>(`${this.api}/${urlSegment}/${id}`);
+    return this.http.delete<Message<null>>(`${this.api.concat(urlSegment)}/${id}`);
   }
 
   protected getAll<T>(urlSegment: string): Observable<T> {
-    return this.http.get<T>(`${this.api}/${urlSegment}`)
+    return this.http.get<T>(this.api.concat(urlSegment))
   }
 
 
